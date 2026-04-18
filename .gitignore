@@ -1,0 +1,46 @@
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+dist/
+build/
+*.egg-info/
+.eggs/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Models (optional - uncomment if you want to keep locally)
+# models/*.pkl
+# models/*.joblib
+# models/*.h5
+
+# Data (optional - uncomment if you have large data files)
+# data/*.csv
+# *.parquet
+
+# Environment variables
+.env
+.env.local
+
+# Streamlit cache
+.streamlit/
+
+# Logs
+*.log
