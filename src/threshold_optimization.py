@@ -207,15 +207,15 @@ class ThresholdOptimizer:
         }
         
         if verbose:
-            print(f"\n🎯 Optimal Threshold: {threshold:.2f}")
-            print(f"\n📋 Rationale:")
+            print(f"\n Optimal Threshold: {threshold:.2f}")
+            print(f"\n Rationale:")
             print(f"   {reason}")
-            print(f"\n📊 Metrics at Optimal Threshold:")
-            print(f"   Recall:      {result['recall']:.4f} ⭐ (Catch fraud)")
+            print(f"\n Metrics at Optimal Threshold:")
+            print(f"   Recall:      {result['recall']:.4f} (Catch fraud)")
             print(f"   Precision:   {result['precision']:.4f}   (Minimize false alarms)")
             print(f"   F1-Score:    {result['f1']:.4f}")
             print(f"   Specificity: {result['specificity']:.4f} (True Negative Rate)")
-            print(f"\n📈 Confusion Matrix at Threshold {threshold:.2f}:")
+            print(f"\n Confusion Matrix at Threshold {threshold:.2f}:")
             print(f"   True Positives:  {result['tp']:,}   (Correctly caught frauds)")
             print(f"   False Positives: {result['fp']:,}   (False alarms)")
             print(f"   False Negatives: {result['fn']:,}   (Missed frauds)")
@@ -516,7 +516,7 @@ if __name__ == "__main__":
     print(f"✓ Data loaded: {X_test_scaled.shape}")
     
     # Optimize
-    print("\n🎯 Initializing optimizer...")
+    print("\n Initializing optimizer...")
     optimizer = ThresholdOptimizer(model_path="models/Random_Forest_tuned.pkl")
     
     print("\n📊 Analyzing thresholds (0.0 to 1.0)...")
@@ -547,7 +547,7 @@ if __name__ == "__main__":
     print("GENERATING VISUALIZATIONS")
     print("="*70)
     
-    print("\n📈 Creating visualizations...")
+    print("\n Creating visualizations...")
     optimizer.plot_precision_recall()
     optimizer.plot_metrics_vs_threshold()
     optimizer.plot_roc_curve()
@@ -557,9 +557,9 @@ if __name__ == "__main__":
     optimizer.export_results('threshold_analysis_results.csv')
     
     print("\n" + "="*70)
-    print("✨ THRESHOLD OPTIMIZATION COMPLETE!")
+    print("THRESHOLD OPTIMIZATION COMPLETE!")
     print("="*70)
-    print("\n📁 Generated files:")
+    print("\n Generated files:")
     print("   - precision_recall_threshold.png")
     print("   - metrics_vs_threshold.png")
     print("   - roc_curve_threshold_annotations.png")

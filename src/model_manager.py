@@ -473,5 +473,5 @@ if __name__ == "__main__":
         print(f"Model parameters: {best_model.n_estimators} trees")
     
     print("\n" + "="*70)
-    print("✨ ALL EXAMPLES COMPLETED")
+    print("ALL EXAMPLES COMPLETED")
     print("="*70)

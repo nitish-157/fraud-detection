@@ -52,7 +52,7 @@ class SHAPExplainer:
             print("\n" + "="*70)
             print("PREPARING SHAP EXPLAINER")
             print("="*70)
-            print(f"\n🔧 Creating TreeExplainer...")
+            print(f"\n Creating TreeExplainer...")
         
         # Create background data sample
         if X_train.shape[0] > sample_size:
@@ -522,7 +522,7 @@ if __name__ == "__main__":
     print(f"✓ Data prepared: Train={X_train_scaled.shape}, Test={X_test_scaled_df.shape}")
     
     # Initialize SHAP explainer
-    print("\n🔧 Initializing SHAP explainer...")
+    print("\n Initializing SHAP explainer...")
     explainer = SHAPExplainer(model_path="models/Random_Forest_tuned.pkl")
     
     # Prepare explainer
@@ -553,9 +553,9 @@ if __name__ == "__main__":
     explainer.export_shap_analysis()
     
     print("\n" + "="*70)
-    print("✨ SHAP ANALYSIS COMPLETE!")
+    print("SHAP ANALYSIS COMPLETE!")
     print("="*70)
-    print("\n📁 Generated files:")
+    print("\n Generated files:")
     print("   - shap_feature_importance.png")
     print("   - shap_summary_dot.png")
     print("   - shap_summary_bar.png")

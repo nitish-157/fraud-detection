@@ -25,7 +25,7 @@ try:
     XGBOOST_AVAILABLE = True
 except Exception as e:
     XGBOOST_AVAILABLE = False
-    print(f"⚠️  XGBoost not available: {type(e).__name__}")
+    print(f"XGBoost not available: {type(e).__name__}")
 
 warnings.filterwarnings('ignore')
 
@@ -111,7 +111,7 @@ class HyperparameterTuner:
         )
         
         if verbose:
-            print(f"\n🚀 Training GridSearchCV...")
+            print(f"\n Training GridSearchCV...")
             start_time = time.time()
         
         # Fit
@@ -137,7 +137,7 @@ class HyperparameterTuner:
         
         if verbose:
             print(f"\n🏆 Best Recall Score: {best_score:.4f}")
-            print(f"\n📊 Best Parameters:")
+            print(f"\n Best Parameters:")
             for param, value in best_params.items():
                 print(f"   {param}: {value}")
         
@@ -165,7 +165,7 @@ class HyperparameterTuner:
             Tuple of (best_model, best_params) or (None, None) if XGBoost unavailable
         """
         if not XGBOOST_AVAILABLE:
-            print("\n⚠️  XGBoost not available. Skipping XGBoost tuning.")
+            print("\n XGBoost not available. Skipping XGBoost tuning.")
             return None, None
         
         print("\n" + "="*70)
@@ -221,7 +221,7 @@ class HyperparameterTuner:
         )
         
         if verbose:
-            print(f"\n🚀 Training RandomizedSearchCV...")
+            print(f"\n Training RandomizedSearchCV...")
             start_time = time.time()
         
         # Fit
@@ -309,7 +309,7 @@ class HyperparameterTuner:
         best_model = self.best_models[best_model_name]
         best_params = self.best_params[best_model_name]
         
-        print(f"\n🏆 Best Tuned Model: {best_model_name}")
+        print(f"\n Best Tuned Model: {best_model_name}")
         print(f"   Recall Score: {self.tuning_results[best_model_name]['best_score']:.4f}")
         
         return best_model_name, best_model, best_params
@@ -320,7 +320,7 @@ class HyperparameterTuner:
             raise ValueError(f"Model '{model_name}' not tuned yet.")
         
         joblib.dump(self.best_models[model_name], filepath)
-        print(f"✓ Model '{model_name}' saved to {filepath}")
+        print(f"Model '{model_name}' saved to {filepath}")
     
     def save_all_tuned_models(self, directory: str = "models") -> None:
         """Save all tuned models."""
@@ -376,7 +376,7 @@ if __name__ == "__main__":
     from sklearn.model_selection import train_test_split
     from imblearn.over_sampling import SMOTE
     
-    print("\n📂 Loading and preparing data...")
+    print("\n Loading and preparing data...")
     df = pd.read_csv('Fraud.csv')
     
     # Sample for demo (smaller sample for faster tuning)
@@ -396,17 +396,17 @@ if __name__ == "__main__":
     )
     
     # Scale features
-    print("📊 Scaling features...")
+    print("Scaling features...")
     scaler = StandardScaler()
     X_train_scaled = scaler.fit_transform(X_train)
     X_test_scaled = scaler.transform(X_test)
     
     # Apply SMOTE
-    print("⚖️  Applying SMOTE...")
+    print("Applying SMOTE...")
     smote = SMOTE(random_state=42)
     X_train_balanced, y_train_balanced = smote.fit_resample(X_train_scaled, y_train.values)
     
-    print(f"✓ Data prepared:")
+    print(f"Data prepared:")
     print(f"   Training: {X_train_balanced.shape}")
     print(f"   Test: {X_test_scaled.shape}")
     
@@ -443,7 +443,7 @@ if __name__ == "__main__":
     y_pred = best_model.predict(X_test_scaled)
     y_pred_proba = best_model.predict_proba(X_test_scaled)[:, 1]
     
-    print(f"\n📊 {best_name} Metrics on Test Set:")
+    print(f"\n {best_name} Metrics on Test Set:")
     print(f"  Recall:    {recall_score(y_test.values, y_pred):.4f}")
     print(f"  Precision: {precision_score(y_test.values, y_pred, zero_division=0):.4f}")
     print(f"  F1-Score:  {f1_score(y_test.values, y_pred, zero_division=0):.4f}")

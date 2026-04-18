@@ -33,7 +33,7 @@ try:
     XGBOOST_AVAILABLE = True
 except Exception as e:
     XGBOOST_AVAILABLE = False
-    print(f"⚠️  XGBoost not available: {type(e).__name__}")
+    print(f"XGBoost not available: {type(e).__name__}")
 
 warnings.filterwarnings('ignore')
 
@@ -56,7 +56,7 @@ class FraudDetectionModelTrainer:
     
     def _initialize_models(self) -> None:
         """Initialize all available models with default hyperparameters."""
-        print("🔧 Initializing models...")
+        print("Initializing models...")
         
         # Logistic Regression
         self.models['Logistic Regression'] = LogisticRegression(
@@ -117,7 +117,7 @@ class FraudDetectionModelTrainer:
             raise ValueError(f"Model '{model_name}' not found. Available: {list(self.models.keys())}")
         
         if verbose:
-            print(f"\n🚀 Training {model_name}...")
+            print(f"\n Training {model_name}...")
             print(f"   Data shape: {X_train.shape}")
             print(f"   Sample distribution: {np.bincount(y_train.astype(int))}")
         
@@ -152,7 +152,7 @@ class FraudDetectionModelTrainer:
             return model, train_metrics
         
         except Exception as e:
-            print(f"❌ Error training {model_name}: {str(e)}")
+            print(f"Error training {model_name}: {str(e)}")
             raise
     
     def train_all_models(
