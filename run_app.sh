@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "🚀 Starting Fraud Detection App..."
+echo "Starting Fraud Detection App..."
 echo ""
 
 # Get script directory
@@ -20,7 +20,7 @@ fi
 pip install -q -r requirements.txt 2>/dev/null
 
 # Run app
-echo "✅ Ready! Starting Streamlit app..."
+echo "Ready! Starting Streamlit app..."
 echo ""
 streamlit run app/streamlit_app.py
 echo ""
