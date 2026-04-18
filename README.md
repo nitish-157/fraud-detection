@@ -2,7 +2,15 @@
 
 A comprehensive machine learning solution for detecting fraudulent credit card transactions using Python and scikit-learn.
 
-## 📁 Project Structure
+## Live Link
+
+Try the app live here: **[Fraud Detection App](https://fraud-detection-nitish157.streamlit.app/)**
+
+Simply enter transaction details to get instant fraud predictions!
+
+---
+
+## Project Structure
 
 ```
 fraud-detection/
